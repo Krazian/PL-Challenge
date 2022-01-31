@@ -1,0 +1,42 @@
+<pre>
+IMPORTANT: Do NOT use any 3rd party libraries (e.g. do not change package.json at all). While using libraries like Angular material are generally a great idea, for this exercise we want to see the most SIMPLE possible, bare bones Angular implementation, 100% hand coded by you.
+
+FIRST: Click "fork" above (in Stackblitz) to make a copy of this project, then do all your work in your own copy. When you are done send us your stackblitz.com URL with your work.
+
+Technology note: We use Angular 2 as our frontend so this task is set up in Angular 2. Hopefully it is straight-forward enough that you can do it in Angular 2, but if you prefer another framework (e.g. React), feel free to create your own project in that framework and complete the task there.
+Styling / frameworks: Feel free to keep it simple, or to pull in your CSS framework of choice (e.g. bootstap).
+
+Task: Build a list of students.
+Suggested time: 2 hours.
+Design: if you have design skills feel free to display them, but we prefer a functionally complete version rather than spending much time on CSS. The code is more important than the design.
+There is a lot of functionality that could be done so please make sure to add a TODO list with notes of what is left, especially if you choose to dive deep into perfecting one piece and thus do not complete all the parts (though ideally we'd prefer you complete all parts). Understanding WHY you did what you did and the decisions you made is very important.
+
+Background:
+Therapists need to see a list of students and add them to their caseload to provide therapy to those students. Each student needs one or more types of therapy (speech, occupational, behavioral) and each provider is licensed to provide one or more of these types.
+
+Data (model and example data to use) - see the students-data.service.ts file.
+
+API / backend - usually we would have a backend to make queries for filtering, searching, paging, deleting, etc. For this exercise, do it all on the frontend. Thus a page refresh will effectively reset the data to the original state.
+Bonus: when you implement CRUD operations (search, filter, update, delete) below, write them as asynchronous functions in the students-data.service file.
+
+1. List view - display the students. Cards? Table? Carousel? Other?
+1a. Paging / scrolling.
+1b. Filters - search by student name or by one or more therapy types.
+1c. Sorting - sort by student name or by therapy type.
+
+2. Details view & CRUD - a single student.
+2a. How? New page & destroy list? Hide list? Show both? Think about performance and user experience.
+2b. Edit student (update name and / or therapies).
+2c. Delete student.
+2d. Add a new student - same page / structure as view and edit, or new page?
+
+3. What's left to do / what did you not get to? What else would you add and how would you prioritize it? Feel free to leave comments / placeholders in the code and / or add a README file explaining your work.
+3a. Testing?
+3b. Performance?
+3c. Code quality?
+
+Hints (use only if necessary):
+- If you want a wireframe, you may use this: https://ibb.co/BGPhRsM
+</pre>
+
+<students></students>
