@@ -23,12 +23,21 @@ export class StudentFormComponent implements OnInit {
     this.speech = this.editingStudent.therapies.includes("speech")
   }
 
-  onSaveStudent(editingStudent: object) {
-    console.log(this.name)
-    console.log(this.behavioral)
-    console.log(this.occupational)
-    console.log(this.speech)
-    console.log('editingStudent', editingStudent);
-    this.saveStudentInfo.emit(editingStudent)
+  onSaveStudent() {
+    if(this.name === "" || this.name === undefined){
+      alert("Student must have a name!");
+      return;
+    }
+    const therapies = [];
+    if (this.behavioral){therapies.push("behavioral")};
+    if (this.occupational){therapies.push("occupational")};
+    if (this.speech){therapies.push("speech")};
+    const savedStudentData = {
+      ...this.editingStudent,
+      name: this.name,
+      therapies: therapies
+    };
+
+    this.saveStudentInfo.emit(savedStudentData)
   }
 }

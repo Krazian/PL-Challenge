@@ -24,8 +24,12 @@ export class StudentsComponent {
     this.selectedStudent = student;
   }
 
+  saveStudent(student: object) {
+    const studentIndex = this.students.findIndex(stdnt => stdnt.id === student.id)
+    this.students[studentIndex] = student;
+  }
+
   editStudent(student: object) {
-    console.log('Editing', student.name, '...');
   }
 
   deleteStudent(student: object) {

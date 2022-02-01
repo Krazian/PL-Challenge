@@ -8,19 +8,22 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class StudentComponent implements OnInit {
   editing: boolean = false;
   @Input() student: object;
-  @Output() emitEditStudent = new EventEmitter<object>();
+  @Output() emitSaveStudent = new EventEmitter<object>();
   @Output() emitDeleteStudent = new EventEmitter<object>();
 
   constructor() {}
 
   ngOnInit() {}
 
-  onEditStudent(student) {
-    this.editing = true;
-    // this.emitEditStudent.emit(student);
+  saveStudent(student: object){
+    this.emitSaveStudent.emit(student)
   }
 
-  onDeleteStudent(student) {
+  onEditStudent() {
+    this.editing = true;
+  }
+
+  onDeleteStudent(student: object) {
     this.emitDeleteStudent.emit(student);
   }
 }
