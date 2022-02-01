@@ -1,1 +1,6 @@
 /* Add application styles & imports to this file! */
+ul{
+  margin-top: 0px;
+  list-style: none;
+  padding-left: 0;
+}

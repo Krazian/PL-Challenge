@@ -5,5 +5,22 @@
 }
 .student-container{
   min-width:50%;
+  
+  width: 50%;
+
+  height: 500px;
+  overflow-y: auto;
+}
+.student-btn{
+  cursor: pointer;
+  background-color: lightgrey;
+  padding: 2.5px 5px;
+  margin-bottom: 5px;
+}
+.student-btn.added{
+  border-left: 5px solid green;
+}
+.student-profile {
+  min-width: 50%;
   width: 50%;
 }

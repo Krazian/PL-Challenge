@@ -10,7 +10,8 @@
   </ul>
 
   <student-profile
-       *ngIf="selectedStudent"
+  class="student-profile" 
+    *ngIf="selectedStudent"
     [student]="selectedStudent"
     (emitEditStudent)="editStudent($event)"
     (emitDeleteStudent)="deleteStudent($event)"
