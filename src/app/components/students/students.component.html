@@ -1,3 +1,4 @@
+<!-- <button (click)="addStudent()">Add Student</button> -->
 <div id="dashboard">
   <ul class="student-container">
     <li
@@ -8,12 +9,13 @@
       <h2>{{ student.name }}</h2>
     </li>
   </ul>
-
   <student-profile
     class="student-profile"
-    *ngIf="selectedStudent"
+    *ngIf="selectedStudent || isAdding"
     [student]="selectedStudent"
     (emitSaveStudent)="saveStudent($event)"
+    (emitToggleForm)="toggleForm($event)"
     (emitDeleteStudent)="deleteStudent($event)"
-  ></student-profile>
+    ><!--[adding]="isAdding"--></student-profile
+  >
 </div>

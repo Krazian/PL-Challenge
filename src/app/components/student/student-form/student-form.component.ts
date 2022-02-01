@@ -6,10 +6,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./student-form.component.css'],
 })
 export class StudentFormComponent implements OnInit {
-  @Input() name: string
-  @Input() behavioral: boolean
-  @Input() occupational: boolean
-  @Input() speech: boolean
+  @Input() name: string;
+  @Input() behavioral: boolean;
+  @Input() occupational: boolean;
+  @Input() speech: boolean;
   @Input() editingStudent: object;
   @Input() isEditing: boolean;
   @Output() saveStudentInfo = new EventEmitter<object>();
@@ -17,27 +17,36 @@ export class StudentFormComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.name = this.editingStudent.name 
-    this.behavioral = this.editingStudent.therapies.includes("behavioral")
-    this.occupational = this.editingStudent.therapies.includes("occupational")
-    this.speech = this.editingStudent.therapies.includes("speech")
+    if (this.isEditing) {
+      this.name = this.editingStudent.name;
+      this.behavioral = this.editingStudent.therapies.includes('behavioral');
+      this.occupational =
+        this.editingStudent.therapies.includes('occupational');
+      this.speech = this.editingStudent.therapies.includes('speech');
+    }
   }
 
   onSaveStudent() {
-    if(this.name === "" || this.name === undefined){
-      alert("Student must have a name!");
+    if (this.name === '' || this.name === undefined) {
+      alert('Student must have a name!');
       return;
     }
     const therapies = [];
-    if (this.behavioral){therapies.push("behavioral")};
-    if (this.occupational){therapies.push("occupational")};
-    if (this.speech){therapies.push("speech")};
+    if (this.behavioral) {
+      therapies.push('behavioral');
+    }
+    if (this.occupational) {
+      therapies.push('occupational');
+    }
+    if (this.speech) {
+      therapies.push('speech');
+    }
     const savedStudentData = {
       ...this.editingStudent,
       name: this.name,
-      therapies: therapies
+      therapies: therapies,
     };
-
-    this.saveStudentInfo.emit(savedStudentData)
+    console.log(savedStudentData)
+    // this.saveStudentInfo.emit(savedStudentData);
   }
 }

@@ -2,7 +2,7 @@
   <img
     src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973461__340.png"
   />
-  <div *ngIf="!editing;">
+  <div *ngIf="!editing">
     <h2>{{ student.name }}</h2>
     <h3>Therapies</h3>
     <ul *ngIf="student.therapies.length > 0; else noTherapies">
@@ -16,8 +16,13 @@
       </ul>
     </ng-template>
   </div>
-  <student-form *ngIf="editing" [editingStudent]="student" [isEditing]="editing" (saveStudentInfo)="saveStudent($event)"></student-form>
-  <button *ngIf="!editing"(click)="onEditStudent(student)">Edit</button>
-
+  <student-form
+    *ngIf="editing"
+    [editingStudent]="student"
+    [isEditing]="editing"
+    (saveStudentInfo)="saveStudent($event)"
+  ></student-form>
+  <button *ngIf="!editing" (click)="onEditStudent(student)">Edit</button>
+  <button *ngIf="editing" (click)="onToggleForm()">Cancel</button>
   <button (click)="onDeleteStudent(student)">Delete</button>
 </div>

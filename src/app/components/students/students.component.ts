@@ -10,6 +10,8 @@ export class StudentsComponent {
   // Use the StudentsDataService.getStudents function as a mock API to get students.
   students: [] = [];
   selectedStudent: object;
+  isEditing: boolean = false
+  // isAdding: boolean = false;
   @Output() emitEditStudent = new EventEmitter<object>();
   @Output() onSelectStudent = new EventEmitter<object>();
   constructor() {}
@@ -20,16 +22,25 @@ export class StudentsComponent {
     });
   }
 
+  // addStudent(){
+  //   this.isAdding = true;
+  // }
+
   selectStudent(student: object) {
-    this.selectedStudent = student;
+    if(!this.isEditing){
+      this.selectedStudent = student;
+    }
   }
 
   saveStudent(student: object) {
-    const studentIndex = this.students.findIndex(stdnt => stdnt.id === student.id)
+    const studentIndex = this.students.findIndex(stdnt => stdnt.id === student.id);
     this.students[studentIndex] = student;
+    this.selectedStudent = student;
+    if (this.isAdding){this.isAdding = false};
   }
 
-  editStudent(student: object) {
+  toggleForm(value: boolean){
+    this.isEditing = value
   }
 
   deleteStudent(student: object) {
