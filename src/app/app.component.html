@@ -38,19 +38,8 @@ Bonus: when you implement CRUD operations (search, filter, update, delete) below
 Hints (use only if necessary):
 - If you want a wireframe, you may use this: https://ibb.co/BGPhRsM
 </pre>--->
-<login 
-  *ngIf="!loggedIn" 
-  (onSignIn)="signIn($event)"
-></login>
+<login *ngIf="!loggedIn" (onSignIn)="signIn($event)"></login>
 
-<hello 
-  *ngIf="username"
-  name="{{ username }}"
-></hello>
+<hello *ngIf="username" name="{{ username }}"></hello>
 
-<students 
-  *ngIf="username" 
-  (onSelectStudent)="selectStudent($event)"
-></students>
-
-
+<students *ngIf="username" (onSelectStudent)="selectStudent($event)"></students>
