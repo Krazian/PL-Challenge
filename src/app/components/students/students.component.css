@@ -7,6 +7,13 @@
   padding-left:10px;
   margin-bottom: 5px;
 }
+.clear-search{
+  cursor: pointer;
+  margin-left: 5px;
+  border: 1px solid grey;
+  background-color: lightgrey;
+  padding: 2px 5px;
+}
 .student-container{
   min-width:50%;
   width: 50%;
