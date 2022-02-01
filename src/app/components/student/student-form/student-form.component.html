@@ -1,16 +1,22 @@
-<form>
-  <h2><input value="{{ editingStudent.name }}" /></h2>
+<form (ngSubmit)="onSaveStudent(editingStudent)">
+  <h2><input type="text" [(ngModel)]="name" name="name" /></h2>
   <h3>Therapies</h3>
   <div class="form-control">
-    <label for="speech-box">Behavioral</label>
-    <input type="checkbox" name="behavioral" [checked]="editingStudent.therapies.includes('behavioral')">
+    <label for="behavioral"
+      >Behavioral
+      <input type="checkbox" [(ngModel)]="behavioral" name="behavioral"
+    /></label>
   </div>
   <div class="form-control">
-    <label for="speech-box">Occupational</label>
-    <input type="checkbox" name="occupational" [checked]="editingStudent.therapies.includes('occupational')">
+    <label for="occupational"
+      >Occupational
+      <input type="checkbox" [(ngModel)]="occupational" name="occupational"
+    /></label>
   </div>
   <div class="form-control">
-    <label for="speech-box">Speech</label>
-    <input type="checkbox" name="speech" [checked]="editingStudent.therapies.includes('speech')">
+    <label for="speech"
+      >Speech <input type="checkbox" [(ngModel)]="speech" name="speech"
+    /></label>
   </div>
+  <input type="submit" value="Save" />
 </form>

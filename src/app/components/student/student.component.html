@@ -16,10 +16,8 @@
       </ul>
     </ng-template>
   </div>
-  <student-form *ngIf="editing" [editingStudent]="student"></student-form>
-  <button *ngIf="!editing; else saveButton"(click)="onEditStudent(student)">Edit</button>
-  <ng-template #saveButton>
-  <button (click)="onSaveStudent(student)">Save</button>
-  </ng-template> 
+  <student-form *ngIf="editing" [editingStudent]="student" [isEditing]="editing"></student-form>
+  <button *ngIf="!editing"(click)="onEditStudent(student)">Edit</button>
+
   <button (click)="onDeleteStudent(student)">Delete</button>
 </div>

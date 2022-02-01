@@ -16,7 +16,6 @@ export class StudentsComponent {
 
   ngOnInit() {
     StudentsDataService.getStudents().then((data) => {
-      console.log(data.students.filter((st) => st.therapies.length === 3));
       this.students = data.students;
     });
   }

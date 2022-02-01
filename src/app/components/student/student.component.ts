@@ -20,8 +20,6 @@ export class StudentComponent implements OnInit {
     // this.emitEditStudent.emit(student);
   }
 
-  onSaveStudent(student) {}
-
   onDeleteStudent(student) {
     this.emitDeleteStudent.emit(student);
   }
