@@ -8,12 +8,15 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class LoginComponent implements OnInit {
   username: string;
   password: string;
-  @Output() onSignIn = new EventEmitter();
+  @Output() onSignIn = new EventEmitter<string>();
 
   ngOnInit() {}
 
   onLogin() {
-    alert('here');
+    if (this.username === "" || this.password === ""){
+      alert("Please login in");
+      return;
+    }
     this.onSignIn.emit(this.username);
   }
 }

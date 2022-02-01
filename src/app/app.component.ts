@@ -9,6 +9,6 @@ export class AppComponent {
   name = 'Angular';
 
   signIn(username: string) {
-    alert(username);
+    console.log(username);
   }
 }
