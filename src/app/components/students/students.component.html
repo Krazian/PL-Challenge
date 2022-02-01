@@ -1,14 +1,22 @@
 <!-- <button (click)="addStudent()">Add Student</button> -->
 <div id="dashboard">
-  <ul class="student-container">
-    <li
-      class="student-btn"
-      *ngFor="let student of students"
-      (click)="selectStudent(student)"
-    >
-      <h2>{{ student.name }}</h2>
-    </li>
-  </ul>
+  <div class="student-container">
+    <form class="search-box" (ngSubmit)="onSearch()">
+      <input type="text" [(ngModel)]="searchTerms" name="searchTerms" value="{{searchTerms}}"/>
+      <input type="submit" value="Search">
+      <span (click)="onClearSearch()">Clear</span>
+    </form>
+
+    <ul class="student-list">
+      <li
+        class="student-btn"
+        *ngFor="let student of students"
+        (click)="selectStudent(student)"
+      >
+        <h2>{{ student.name }}</h2>
+      </li>
+    </ul>
+  </div>
   <student-profile
     class="student-profile"
     *ngIf="selectedStudent || isAdding"

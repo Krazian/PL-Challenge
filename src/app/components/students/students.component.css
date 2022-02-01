@@ -3,11 +3,15 @@
   display: flex;
   justify-content: space-between;
 }
+.search-box{
+  padding-left:10px;
+  margin-bottom: 5px;
+}
 .student-container{
   min-width:50%;
-  
   width: 50%;
-
+}
+.student-list{
   height: 500px;
   overflow-y: auto;
 }
