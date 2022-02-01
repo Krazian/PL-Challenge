@@ -10,6 +10,11 @@ export class StudentComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    console.log(this.student);
+    console.log("From student component", this.student)
+  }
+
+  receiveStudent(student){
+    console.log("From student component", student)
+    this.student = student
   }
 }

@@ -41,4 +41,7 @@ Hints (use only if necessary):
 <login *ngIf="!loggedIn" (onSignIn)="signIn($event)"></login>
 <hello *ngIf="username" name="{{ username }}"></hello>
 <students *ngIf="username" (onSelectStudent)="selectStudent($event)"></students>
-<student-profile *ngIf="selectedStudent" student="{{selectedStudent}}"></student-profile>
+<student-profile
+  *ngIf="selectedStudent"
+  student="{{ selectedStudent }}"
+></student-profile>

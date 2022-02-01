@@ -18,6 +18,6 @@ export class AppComponent {
 
   selectStudent(student: object) {
     this.selectedStudent = student;
-    console.log(this.selectedStudent)
+    console.log("From app component",this.selectedStudent)
   }
 }
