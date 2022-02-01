@@ -1,7 +1,18 @@
-<div
-  class="student"
-  *ngFor="let student of students"
-  (click)="selectStudent(student)"
->
-  <h2>{{ student.name }}</h2>
+<div id="dashboard">
+  <ul class="student-container">
+    <li
+      class="student-btn"
+      *ngFor="let student of students"
+      (click)="selectStudent(student)"
+    >
+      <h2>{{ student.name }}</h2>
+    </li>
+  </ul>
+
+  <student-profile
+       *ngIf="selectedStudent"
+    [student]="selectedStudent"
+    (emitEditStudent)="editStudent($event)"
+    (emitDeleteStudent)="deleteStudent($event)"
+  ></student-profile>
 </div>

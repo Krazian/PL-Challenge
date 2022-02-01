@@ -16,8 +16,4 @@ export class AppComponent {
     this.loggedIn = true;
   }
 
-  selectStudent(student: object) {
-    this.selectedStudent = student;
-    console.log("From app component",this.selectedStudent)
-  }
 }

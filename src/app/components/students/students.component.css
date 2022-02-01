@@ -1,0 +1,9 @@
+
+#dashboard{
+  display: flex;
+  justify-content: space-between;
+}
+.student-container{
+  min-width:50%;
+  width: 50%;
+}

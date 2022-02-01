@@ -1,11 +1,12 @@
-<hr>
-<div *ngIf="student">
+
+<div  class="student-profile" *ngIf="student">
+  <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973461__340.png"/>
   <h2>{{student.name}}</h2>
   <ul>
     <li *ngFor="let therapy of student.therapies">
       {{ therapy }}
     </li>
   </ul>
-  <button value="Edit"></button>
-  <button value="Delete"></button>
+  <button (click)="onEditStudent(student)">Edit</button>
+  <button (click)="onDeleteStudent(student)">Delete</button>
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'student-profile',
@@ -7,9 +7,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class StudentComponent implements OnInit {
   @Input() student: object;
-  constructor() {}
+  @Output() emitEditStudent = new EventEmitter<object>();
+  @Output() emitDeleteStudent = new EventEmitter<object>();
 
-  ngOnInit() {
-    console.log('From student component', this.student);
-  }
+  constructor() {};
+
+  ngOnInit() {};
+
+  onEditStudent(student){
+    this.emitEditStudent.emit(student);
+  };
+  onDeleteStudent(student){
+    this.emitDeleteStudent.emit(student);
+  };
 }
