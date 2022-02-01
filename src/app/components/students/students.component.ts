@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StudentsDataService } from './students-data.service';
+import { StudentsDataService } from '../../services/students/students-data.service';
 
 @Component({
   selector: 'students',
@@ -8,15 +8,11 @@ import { StudentsDataService } from './students-data.service';
 })
 export class StudentsComponent {
   // Use the StudentsDataService.getStudents function as a mock API to get students.
-  students:any;
+  students: any;
   getStudents = StudentsDataService.getStudents().then((data) => {
-    console.log(data)
-     this.students = data.students
-  })
+    this.students = data.students;
+  });
 }
-
-
-
 
 //   students: any;
 //   constructor() {}
@@ -26,12 +22,3 @@ export class StudentsComponent {
 //     });
 //   }
 // }
-
-
-
-
-
-
-
-
-
