@@ -43,5 +43,5 @@ Hints (use only if necessary):
 <students *ngIf="username" (onSelectStudent)="selectStudent($event)"></students>
 <student-profile
   *ngIf="selectedStudent"
-  student="{{ selectedStudent }}"
+  [student]="selectedStudent"
 ></student-profile>
