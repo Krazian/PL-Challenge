@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { StudentsDataService } from '../../services/students/students-data.service';
 
 @Component({
@@ -8,17 +8,17 @@ import { StudentsDataService } from '../../services/students/students-data.servi
 })
 export class StudentsComponent {
   // Use the StudentsDataService.getStudents function as a mock API to get students.
-  students: any;
-  getStudents = StudentsDataService.getStudents().then((data) => {
-    this.students = data.students;
-  });
-}
+  students: [] = [];
+  @Output() onSelectStudent = new EventEmitter<object>();
+  constructor() {}
 
-//   students: any;
-//   constructor() {}
-//   ngOnInit() {
-//     StudentsDataService.getStudents().then((data) => {
-//       this.students = data.students;
-//     });
-//   }
-// }
+  ngOnInit() {
+    StudentsDataService.getStudents().then((data) => {
+      this.students = data.students;
+    });
+  }
+
+  selectStudent(student) {
+    this.onSelectStudent.emit(student);
+  }
+}

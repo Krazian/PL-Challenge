@@ -1,9 +1,7 @@
-<hello name="Johnathan"></hello>
-<div class="student" *ngFor="let student of students">
-  <h2 >{{student.name}}</h2>
-  <ul *ngIf="student.therapies.length > 0">
-    <li *ngFor="let therapy of student.therapies">
-      {{therapy}}
-    </li>
-  </ul>
+<div
+  class="student"
+  *ngFor="let student of students"
+  (click)="selectStudent(student)"
+>
+  <h2>{{ student.name }}</h2>
 </div>

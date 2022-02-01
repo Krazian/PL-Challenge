@@ -1,0 +1,9 @@
+<hr>
+<div *ngIf="student">
+  <h2>{{student.name}}</h2>
+  <ul>
+    <li *ngFor="let therapy of student.therapies">
+      {{ therapy }}
+    </li>
+</ul>
+</div>

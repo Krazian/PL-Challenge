@@ -7,8 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   name = 'Angular';
+  username: string = 'John';
+  loggedIn: boolean = true;
+  selectedStudent: object;
 
   signIn(username: string) {
-    console.log(username);
+    this.username = username;
+    this.loggedIn = true;
+  }
+
+  selectStudent(student: object) {
+    this.selectedStudent = student;
+    console.log(this.selectedStudent)
   }
 }

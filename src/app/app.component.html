@@ -1,4 +1,4 @@
-<pre>
+<!--<pre>
 IMPORTANT: Do NOT use any 3rd party libraries (e.g. do not change package.json at all). While using libraries like Angular material are generally a great idea, for this exercise we want to see the most SIMPLE possible, bare bones Angular implementation, 100% hand coded by you.
 
 FIRST: Click "fork" above (in Stackblitz) to make a copy of this project, then do all your work in your own copy. When you are done send us your stackblitz.com URL with your work.
@@ -37,6 +37,8 @@ Bonus: when you implement CRUD operations (search, filter, update, delete) below
 
 Hints (use only if necessary):
 - If you want a wireframe, you may use this: https://ibb.co/BGPhRsM
-</pre>
-<login (onSignIn)="signIn($event)"></login>
-<students></students>
+</pre>--->
+<login *ngIf="!loggedIn" (onSignIn)="signIn($event)"></login>
+<hello *ngIf="username" name="{{ username }}"></hello>
+<students *ngIf="username" (onSelectStudent)="selectStudent($event)"></students>
+<student-profile *ngIf="selectedStudent" student="{{selectedStudent}}"></student-profile>

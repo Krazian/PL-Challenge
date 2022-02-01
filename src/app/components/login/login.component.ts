@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   onLogin() {
-    if (this.username === "" || this.password === ""){
-      alert("Please login in");
+    if (!this.username || !this.password) {
+      alert('Please login in');
       return;
     }
     this.onSignIn.emit(this.username);
