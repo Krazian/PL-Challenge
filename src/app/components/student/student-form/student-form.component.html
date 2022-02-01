@@ -1,0 +1,16 @@
+<form>
+  <h2><input value="{{ editingStudent.name }}" /></h2>
+  <h3>Therapies</h3>
+  <div class="form-control">
+    <label for="speech-box">Behavioral</label>
+    <input type="checkbox" name="behavioral" [checked]="editingStudent.therapies.includes('behavioral')">
+  </div>
+  <div class="form-control">
+    <label for="speech-box">Occupational</label>
+    <input type="checkbox" name="occupational" [checked]="editingStudent.therapies.includes('occupational')">
+  </div>
+  <div class="form-control">
+    <label for="speech-box">Speech</label>
+    <input type="checkbox" name="speech" [checked]="editingStudent.therapies.includes('speech')">
+  </div>
+</form>

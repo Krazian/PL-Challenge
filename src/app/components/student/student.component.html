@@ -1,14 +1,25 @@
-
-<div  *ngIf="student">
-  <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973461__340.png"/>
-  <h2>{{student.name}}</h2>
-  <h3>Therapies</h3>
-  <ul *ngIf='student.therapies.length > 0; else noTherapies'>
-    <li *ngFor="let therapy of student.therapies">
-      {{ therapy.toUpperCase() }}
-    </li>
-  </ul>
-  <ng-template #noTherapies><ul><li>Student has no therapies</li></ul></ng-template>
-  <button (click)="onEditStudent(student)">Edit</button>
+<div class="student-profile" *ngIf="student">
+  <img
+    src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973461__340.png"
+  />
+  <div *ngIf="!editing;">
+    <h2>{{ student.name }}</h2>
+    <h3>Therapies</h3>
+    <ul *ngIf="student.therapies.length > 0; else noTherapies">
+      <li *ngFor="let therapy of student.therapies.sort()">
+        {{ therapy.toUpperCase() }}
+      </li>
+    </ul>
+    <ng-template #noTherapies>
+      <ul>
+        <li>Student has no therapies</li>
+      </ul>
+    </ng-template>
+  </div>
+  <student-form *ngIf="editing" [editingStudent]="student"></student-form>
+  <button *ngIf="!editing; else saveButton"(click)="onEditStudent(student)">Edit</button>
+  <ng-template #saveButton>
+  <button (click)="onSaveStudent(student)">Save</button>
+  </ng-template> 
   <button (click)="onDeleteStudent(student)">Delete</button>
 </div>

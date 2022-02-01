@@ -6,18 +6,23 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./student.component.css'],
 })
 export class StudentComponent implements OnInit {
+  editing: boolean = false;
   @Input() student: object;
   @Output() emitEditStudent = new EventEmitter<object>();
   @Output() emitDeleteStudent = new EventEmitter<object>();
 
-  constructor() {};
+  constructor() {}
 
-  ngOnInit() {};
+  ngOnInit() {}
 
-  onEditStudent(student){
-    this.emitEditStudent.emit(student);
-  };
-  onDeleteStudent(student){
+  onEditStudent(student) {
+    this.editing = true;
+    // this.emitEditStudent.emit(student);
+  }
+
+  onSaveStudent(student) {}
+
+  onDeleteStudent(student) {
     this.emitDeleteStudent.emit(student);
-  };
+  }
 }
