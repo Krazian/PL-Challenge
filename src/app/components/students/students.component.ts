@@ -15,14 +15,15 @@ export class StudentsComponent {
   isEditing: boolean = false;
   // isAdding: boolean = false;
   @Input() searchTerms: string = '';
+  @Input() sortTherapy: string = '';
   @Output() emitEditStudent = new EventEmitter<object>();
   @Output() onSelectStudent = new EventEmitter<object>();
   constructor() {}
 
   ngOnInit() {
     StudentsDataService.getStudents().then((data) => {
-      this.students = data.students;
-      this.studentsCopy = data.students;
+      this.students = [...data.students];
+      this.studentsCopy = [...data.students];
     });
   }
 
@@ -34,7 +35,7 @@ export class StudentsComponent {
   selectStudent(student: object) {
     if (!this.isEditing) {
       this.selectedStudent = student;
-    }
+    };
   }
 
   saveStudent(student: object) {
@@ -45,7 +46,7 @@ export class StudentsComponent {
     this.selectedStudent = student;
     if (this.isAdding) {
       this.isAdding = false;
-    }
+    };
   }
 
   deleteStudent(student: object) {
@@ -64,37 +65,50 @@ export class StudentsComponent {
   }
 
   onSearch(): void {
-    let search = this.searchTerms.replace(/[^a-zA-Z ]/g, "").split(' ');
+    let search = this.searchTerms
+      .toLowerCase()
+      .replace(/[^a-zA-Z ]/g, '')
+      .split(' ');
     this.students = this.studentsCopy.filter((student) => {
       let concatFields = `${student.name.toLowerCase()} ${student.therapies.join(' ')}`;
       let match = false;
-      for (let term of search) {
-        if (concatFields.includes(term.toLowerCase())) {
+      search.forEach((term) => {
+        if (concatFields.includes(term)) {
           match = true;
-        }
-      }
+        };
+      });
       if (match) {
         return student;
-      }
+      };
     });
   }
 
   onClearSearch(): void {
     this.searchTerms = '';
+    this.sortAscending = true;
+    this.sortTherapy = '';
     this.students = this.studentsCopy;
   }
 
-  onSort(): any {
+  onSort(): void {
     // Sort the (filtered) list of students
     this.students = this.students.sort((s1, s2) => {
-      if(s1.name.toLowerCase() < s2.name.toLowerCase()){
+      const s1Name = s1.name.toLowerCase();
+      const s2Name = s2.name.toLowerCase();
+      if (s1Name < s2Name) {
         return this.sortAscending ? -1 : 1;
-      } else if(s1.name.toLowerCase() > s2.name.toLowerCase()){
+      } else if (s1Name > s2Name) {
         return this.sortAscending ? 1 : -1;
       } else {
-        return 0
+        return 0;
       }
     });
-    this.sortAscending = !this.sortAscending
+    this.sortAscending = !this.sortAscending;
+  }
+
+  sortByTherapy(): void {
+    this.students = this.students.filter(
+      (student) => student.therapies.indexOf(this.sortTherapy) !== -1
+    );
   }
 }

@@ -4,14 +4,28 @@
 }
 .search-box,
 .sort-options {
-  padding-left: 10px;
   margin-bottom: 5px;
+  padding-left: 10px;
+}
+.search{
+  width: 60%
+}
+.submit-search{
+  margin-left: 1%;
+  width: 36%;
+}
+.sort-by-name{
+  width: 49%;
+}
+.sort-by-therapy{
+  margin-left: 2%;
+  width:49%;
 }
 .clear-search {
+  background-color: lightgrey;
+  border: 1px solid grey;
   cursor: pointer;
   margin-left: 5px;
-  border: 1px solid grey;
-  background-color: lightgrey;
   padding: 2px 5px;
 }
 .student-container {
@@ -23,16 +37,16 @@
   overflow-y: auto;
 }
 .student-btn {
-  cursor: pointer;
   background-color: lightgrey;
-  padding: 2.5px 5px;
+  cursor: pointer;
   margin-bottom: 5px;
+  padding: 2.5px 5px;
 }
 .student-btn.added {
   border-left: 5px solid green;
 }
 .student-profile {
   min-width: 50%;
-  width: 50%;
   padding: 0px 10px;
+  width: 50%;
 }

@@ -19,11 +19,11 @@ export class StudentFormComponent implements OnInit {
   ngOnInit() {
     // When form is open during editing process, have the form reflect the already store data.
     if (this.isEditing) {
-      this.name = this.editingStudent.name;
-      this.behavioral = this.editingStudent.therapies.includes('behavioral');
-      this.occupational =
-        this.editingStudent.therapies.includes('occupational');
-      this.speech = this.editingStudent.therapies.includes('speech');
+      const { name, therapies } = this.editingStudent;
+      this.name = name;
+      this.behavioral = therapies.includes('behavioral');
+      this.occupational = therapies.includes('occupational');
+      this.speech = therapies.includes('speech');
     }
   }
 

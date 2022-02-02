@@ -2,12 +2,30 @@
 <div id="dashboard">
   <div class="student-container">
     <form class="search-box" (ngSubmit)="onSearch()">
-      <input type="text" [(ngModel)]="searchTerms" name="searchTerms" value="{{searchTerms}}"/>
-      <input type="submit" value="Search">
-      <span class="clear-search" *ngIf="searchTerms !== ''" (click)="onClearSearch()">Clear</span>
+      <input
+        class="search"
+        type="text"
+        [(ngModel)]="searchTerms"
+        name="searchTerms"
+        value="{{ searchTerms }}"
+        placeholder="Search keywords"
+      />
+      <input class="submit-search" type="submit" value="Search" />
+      <span
+        class="clear-search"
+        *ngIf="searchTerms !== ''"
+        (click)="onClearSearch()"
+        >Clear</span
+      >
     </form>
-    <div class='sort-options'>
-      <button (click)="onSort()">Sort by Name</button>
+    <div class="sort-options">
+      <button class="sort-by-name" (click)="onSort()">Sort by Name</button>
+      <select class="sort-by-therapy" [(ngModel)]="sortTherapy" (change)="sortByTherapy()">
+        <option value="" disabled selected hidden>Sort by therapy</option>
+        <option value="behavioral">Behavioral</option>
+        <option value="occupational">Occupational</option>
+        <option value="speech">Speech</option>
+      </select>
     </div>
     <ul class="student-list">
       <li
