@@ -25,8 +25,8 @@
   background-color: lightgrey;
   border: 1px solid grey;
   cursor: pointer;
-  margin-left: 5px;
-  padding: 2px 5px;
+  left: 30.5%;
+  position: absolute;
 }
 .student-container {
   min-width: 50%;

@@ -15,13 +15,13 @@
         class="clear-search"
         *ngIf="searchTerms !== ''"
         (click)="onClearSearch()"
-        >Clear</span
+        >&times;</span
       >
     </form>
     <div class="sort-options">
       <button class="sort-by-name" (click)="onSort()">Sort by Name</button>
       <select class="sort-by-therapy" [(ngModel)]="sortTherapy" (change)="sortByTherapy()">
-        <option value="" disabled selected hidden>Sort by therapy</option>
+        <option value="" hidden selected>Sort by therapy</option>
         <option value="behavioral">Behavioral</option>
         <option value="occupational">Occupational</option>
         <option value="speech">Speech</option>

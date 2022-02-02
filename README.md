@@ -12,6 +12,7 @@
   - Basic keyword search. When the user searches a word or words, the function will strip numbers and special characters (all data minus the id is or contains alphabetical string) and runs an `includes()` search for each keyword on a concatenated string that contains the name and all associated therapies.
   - The search also includes a "Clear" button that will clear the search input and revert the list back to the original list when the page was first loaded. The list is able to revert back because I created a second "master" copy on the page's first load.
   - Sorting of the student list (just by name). I allow the user to toggle between ascending and descending, and the sorting happens on the current list of students. This means that you can search the list of students using keywords and then sort that filtered list.
+  - Sorting by therapy types. Using the dropdown to select a therapy type the student list can be filtered by whether or not the select therapy type appears in the student's array of therapy types.
 
 ### Missing functionality that I would've liked to include 
   - A way to add a new student.

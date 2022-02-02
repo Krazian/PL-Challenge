@@ -110,8 +110,29 @@ export class StudentsComponent {
   }
 
   sortByTherapy(): void {
-    this.students = this.students.filter(
-      (student) => student.therapies.indexOf(this.sortTherapy) !== -1
-    );
+    if (this.searchTerms === ""){
+      this.students = this.studentsCopy.filter(
+        student => student.therapies.indexOf(this.sortTherapy) !== -1
+      );
+    } else {
+      let search = this.searchTerms
+      .toLowerCase()
+      .replace(/[^a-zA-Z ]/g, '')
+      .split(' ');
+      this.students = this.studentsCopy.filter(
+        student => student.therapies.indexOf(this.sortTherapy) !== -1
+      ).filter((student) => {
+        let concatFields = `${student.name.toLowerCase()} ${student.therapies.join(' ')}`;
+        let match = false;
+        search.forEach((term) => {
+          if (concatFields.includes(term)) {
+            match = true;
+          };
+        });
+        if (match) {
+          return student;
+        };
+      });;
+    };
   }
 }
