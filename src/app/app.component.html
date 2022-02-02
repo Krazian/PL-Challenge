@@ -40,6 +40,8 @@ Hints (use only if necessary):
 </pre>--->
 <login *ngIf="!loggedIn" (onSignIn)="signIn($event)"></login>
 
-<hello *ngIf="username" name="{{ username }}"></hello>
-
-<students *ngIf="username" (onSelectStudent)="selectStudent($event)"></students>
+<div *ngIf="username">
+  <button (click)="logout()">Log Out</button>
+  <hello name="{{ username }}"></hello>
+  <students (onSelectStudent)="selectStudent($event)"></students>
+</div>

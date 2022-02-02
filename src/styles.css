@@ -5,3 +5,10 @@ ul{
   padding: 0px 10px;
   padding-inline-end: 0px;
 }
+.form-control {
+  margin: 20px 0;
+}
+
+.form-control label {
+  display: block;
+}

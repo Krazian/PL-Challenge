@@ -1,6 +1,7 @@
 <form (ngSubmit)="onSaveStudent()">
-  <h2><input type="text" [(ngModel)]="name" name="name" /></h2>
-  <h3>Therapies</h3>
+  <h2>{{isAdding ? "Add a New" : "Edit"}} Student</h2>
+  <input type="text" [(ngModel)]="name" name="name" placeholder="Name"/>
+  <h3>Select Therapy Types</h3>
   <div class="form-control">
     <label for="behavioral"
       >Behavioral

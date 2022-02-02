@@ -16,4 +16,8 @@ export class AppComponent {
     this.loggedIn = true;
   }
 
+  logout(){
+    this.username = undefined;
+    this.loggedIn = false;
+  }
 }

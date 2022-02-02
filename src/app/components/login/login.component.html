@@ -1,7 +1,13 @@
 <form (ngSubmit)="onLogin()">
   <div class="form-control">
     <label for="username">Username</label>
-    <input name="username" [(ngModel)]="username" type="text" id="username" />
+    <input 
+      name="username" 
+      [(ngModel)]="username" 
+      type="text"
+      id="username"
+      placeholder="Username"
+    />
   </div>
   <div class="form-control">
     <label for="password">Password</label>
@@ -10,6 +16,7 @@
       [(ngModel)]="password"
       type="password"
       id="password"
+      placeholder="Password"
     />
   </div>
   <input type="submit" value="Log In" />
