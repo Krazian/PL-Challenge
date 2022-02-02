@@ -33,19 +33,19 @@ export class StudentFormComponent implements OnInit {
     if (this.name === '' || this.name === undefined) {
       alert('Student must have a name!');
       return;
-    }
+    };
 
     // Stores therapy checkbox selections
     const therapies = [];
     if (this.behavioral) {
       therapies.push('behavioral');
-    }
+    };
     if (this.occupational) {
       therapies.push('occupational');
-    }
+    };
     if (this.speech) {
       therapies.push('speech');
-    }
+    };
 
      // Spread operator allows the object to main the id
     const savedStudentData = 

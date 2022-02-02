@@ -15,31 +15,24 @@ export class StudentComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {
-    console.log(this.adding)
-  }
+  ngOnInit() {}
 
   saveStudent(student: object){
     if(this.editing){
       this.editing = false;
-      this.emitSaveStudent.emit(student)
-      this.emitToggleForm.emit(this.editing)
-    } 
-    // else if (this.adding){
-    //   this.adding = false;
-    //   this.emitSaveStudent.emit(student)
-    //   this.emitToggleForm.emit(this.editing)
-    // }
+      this.emitSaveStudent.emit(student);
+      this.emitToggleForm.emit(this.editing);
+    };
   }
 
   onEditStudent() {
     this.editing = true;
-    this.emitToggleForm.emit(this.editing)
+    this.emitToggleForm.emit(this.editing);
   }
 
   onToggleForm() {
     this.editing = false;
-    this.emitToggleForm.emit(this.editing)
+    this.emitToggleForm.emit(this.editing);
   }
 
   onDeleteStudent(student: object) {

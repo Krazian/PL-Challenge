@@ -41,15 +41,13 @@ export class StudentsComponent {
   // Save only working for edits
   saveStudent(student: object) {
     if (this.isAdding){
-      console.log("student added")
       student.id = this.studentsCopy.length.toString();
       this.students.unshift(student);
       this.studentsCopy.unshift(student);
       this.isAdding = false;
     } else {
-      console.log("student edited")
       const studentIndex = this.students.findIndex(
-        (stdnt) => stdnt.id === student.id
+        stdnt => stdnt.id === student.id
       );
       this.students[studentIndex] = student;
       this.studentsCopy = this.students;
@@ -67,7 +65,7 @@ export class StudentsComponent {
       this.selectedStudent = undefined;
       alert(`Successfully deleted ${student.name}`);
       this.studentsCopy = this.students;
-    }
+    };
   }
 
   toggleForm(value: boolean) {
@@ -123,7 +121,7 @@ export class StudentsComponent {
         student => student.therapies.indexOf(this.sortTherapy) !== -1
       );
     } else {
-      // Duplicate code from the onSearch() method. How to break this out and make dry?
+      // TODO - Duplicate code from the onSearch() method. How to break this out and make dry?
       let search = this.searchTerms
         .toLowerCase()
         .replace(/[^a-zA-Z ]/g, '')
