@@ -64,7 +64,7 @@ export class StudentsComponent {
   }
 
   onSearch(): void {
-    let search = this.searchTerms.split(' ');
+    let search = this.searchTerms.replace(/[^a-zA-Z ]/g, "").split(' ');
     this.students = this.studentsCopy.filter((student) => {
       let concatFields = `${student.name.toLowerCase()} ${student.therapies.join(' ')}`;
       let match = false;
