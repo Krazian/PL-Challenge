@@ -12,6 +12,7 @@ export class StudentFormComponent implements OnInit {
   @Input() speech: boolean;
   @Input() editingStudent: object;
   @Input() isEditing: boolean;
+  @Input() isAdding: boolean;
   @Output() saveStudentInfo = new EventEmitter<object>();
 
   constructor() {}
@@ -46,12 +47,11 @@ export class StudentFormComponent implements OnInit {
       therapies.push('speech');
     }
 
-    // Spread operator allows the object to main the id
-    const savedStudentData = {
-      ...this.editingStudent,
-      name: this.name,
-      therapies: therapies,
-    };
+     // Spread operator allows the object to main the id
+    const savedStudentData = 
+    this.isAdding ?
+    { name: this.name, therapies: therapies } :
+    { ...this.editingStudent, name: this.name, therapies: therapies };
     this.saveStudentInfo.emit(savedStudentData);
   }
 }

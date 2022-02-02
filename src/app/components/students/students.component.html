@@ -42,11 +42,16 @@
       </li>
     </ul>
   </div>
+  <student-form 
+    *ngIf="isAdding"
+    class="student-form"
+    [isAdding]="isAdding"
+    (saveStudentInfo)="saveStudent($event)"
+  ></student-form>
   <student-profile
     class="student-profile"
-    *ngIf="selectedStudent || isAdding"
+    *ngIf="selectedStudent"
     [student]="selectedStudent"
-    [adding]="isAdding"
     (emitSaveStudent)="saveStudent($event)"
     (emitToggleForm)="toggleForm($event)"
     (emitDeleteStudent)="deleteStudent($event)"

@@ -41,16 +41,20 @@ export class StudentsComponent {
   // Save only working for edits
   saveStudent(student: object) {
     if (this.isAdding){
+      console.log("student added")
       student.id = this.studentsCopy.length.toString();
       this.students.unshift(student);
       this.studentsCopy.unshift(student);
+      this.isAdding = false;
     } else {
+      console.log("student edited")
       const studentIndex = this.students.findIndex(
         (stdnt) => stdnt.id === student.id
       );
       this.students[studentIndex] = student;
       this.studentsCopy = this.students;
       this.selectedStudent = student;
+      this.isEditing = false;
     }
   }
 
