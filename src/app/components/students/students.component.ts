@@ -115,6 +115,7 @@ export class StudentsComponent {
         student => student.therapies.indexOf(this.sortTherapy) !== -1
       );
     } else {
+      // Duplicate code from the onSearch() method. How to break this out and make dry?
       let search = this.searchTerms
       .toLowerCase()
       .replace(/[^a-zA-Z ]/g, '')
@@ -132,7 +133,7 @@ export class StudentsComponent {
         if (match) {
           return student;
         };
-      });;
+      });
     };
   }
 }
