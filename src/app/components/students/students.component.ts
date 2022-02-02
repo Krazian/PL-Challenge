@@ -10,6 +10,7 @@ export class StudentsComponent {
   // Use the StudentsDataService.getStudents function as a mock API to get students.
   students: [] = [];
   studentsCopy: [] = [];
+  sortAscending: boolean = true;
   selectedStudent: object;
   isEditing: boolean = false;
   // isAdding: boolean = false;
@@ -57,6 +58,7 @@ export class StudentsComponent {
       alert(`Successfully deleted ${student.name}`);
     }
   }
+
   toggleForm(value: boolean) {
     this.isEditing = value;
   }
@@ -83,5 +85,19 @@ export class StudentsComponent {
   onClearSearch(): void {
     this.searchTerms = '';
     this.students = this.studentsCopy;
+  }
+
+  onSort(): any {
+    // Sort the (filtered) list of students
+    this.students = this.students.sort((s1, s2) => {
+      if(s1.name.toLowerCase() < s2.name.toLowerCase()){
+        return this.sortAscending ? -1 : 1;
+      } else if(s1.name.toLowerCase() > s2.name.toLowerCase()){
+        return this.sortAscending ? 1 : -1;
+      } else {
+        return 0
+      }
+    });
+    this.sortAscending = !this.sortAscending
   }
 }

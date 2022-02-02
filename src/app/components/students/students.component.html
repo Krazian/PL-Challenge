@@ -6,7 +6,7 @@
       <input type="submit" value="Search">
       <span class="clear-search" *ngIf="searchTerms !== ''" (click)="onClearSearch()">Clear</span>
     </form>
-
+    <button (click)="onSort()">Sort by Name</button>
     <ul class="student-list">
       <li
         class="student-btn"

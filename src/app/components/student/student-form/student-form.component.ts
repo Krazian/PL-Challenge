@@ -17,6 +17,7 @@ export class StudentFormComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    // When form is open during editing process, have the form reflect the already store data.
     if (this.isEditing) {
       this.name = this.editingStudent.name;
       this.behavioral = this.editingStudent.therapies.includes('behavioral');
@@ -27,10 +28,13 @@ export class StudentFormComponent implements OnInit {
   }
 
   onSaveStudent() {
+    // Form validation
     if (this.name === '' || this.name === undefined) {
       alert('Student must have a name!');
       return;
     }
+
+    // Stores therapy checkbox selections
     const therapies = [];
     if (this.behavioral) {
       therapies.push('behavioral');
@@ -41,12 +45,13 @@ export class StudentFormComponent implements OnInit {
     if (this.speech) {
       therapies.push('speech');
     }
+
+    // Spread operator allows the object to main the id
     const savedStudentData = {
       ...this.editingStudent,
       name: this.name,
       therapies: therapies,
     };
-    console.log(savedStudentData)
-    // this.saveStudentInfo.emit(savedStudentData);
+    this.saveStudentInfo.emit(savedStudentData);
   }
 }
