@@ -64,13 +64,10 @@ export class StudentsComponent {
   }
 
   onSearch(): void {
-    // Simple O^n search for multiple keyword matches
     let search = this.searchTerms.split(' ');
     this.students = this.studentsCopy.filter((student) => {
-      let concatFields = '';
+      let concatFields = `${student.name.toLowerCase()} ${student.therapies.join(' ')}`;
       let match = false;
-      concatFields += student.name.toLowerCase();
-      concatFields += student.therapies.join(' ');
       for (let term of search) {
         if (concatFields.includes(term.toLowerCase())) {
           match = true;
