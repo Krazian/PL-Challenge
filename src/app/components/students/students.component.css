@@ -3,23 +3,13 @@
   justify-content: space-between;
 }
 .search-box,
-.sort-options {
+.sort-options,
+.new-student {
   margin-bottom: 5px;
   padding-left: 10px;
 }
 .search{
   width: 60%
-}
-.submit-search{
-  margin-left: 1%;
-  width: 36%;
-}
-.sort-by-name{
-  width: 49%;
-}
-.sort-by-therapy{
-  margin-left: 2%;
-  width:49%;
 }
 .clear-search {
   background-color: lightgrey;
@@ -27,6 +17,28 @@
   cursor: pointer;
   left: 30.5%;
   position: absolute;
+}
+.submit-search{
+  background-color: rgb(183, 248, 183);
+  margin-left: 1%;
+  width: 36%;
+}
+.sort-by-name{
+  background-color: rgb(221, 221, 221);
+  width: 49%;
+}
+.sort-by-therapy{
+  margin-left: 2%;
+  width:49%;
+}
+.new-student-button{
+  width: 100%;
+}
+.new-student-button.add{
+  background-color: rgb(221, 221, 221);
+}
+.new-student-button.cancel{
+  background-color: rgb(243, 161, 161);
 }
 .student-container {
   min-width: 50%;

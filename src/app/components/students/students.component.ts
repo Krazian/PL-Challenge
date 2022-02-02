@@ -13,7 +13,7 @@ export class StudentsComponent {
   sortAscending: boolean = true;
   selectedStudent: object;
   isEditing: boolean = false;
-  // isAdding: boolean = false;
+  isAdding: boolean = false;
   @Input() searchTerms: string = '';
   @Input() sortTherapy: string = '';
   @Output() emitEditStudent = new EventEmitter<object>();
@@ -27,28 +27,31 @@ export class StudentsComponent {
     });
   }
 
-  /* CRUD Operations */
-  // addStudent(){
-  //   this.isAdding = true;
-  // }
+  /* ----- CRUD Operations ----- */
+  addStudent(){
+    this.isAdding = !this.isAdding;
+  }
 
   selectStudent(student: object) {
-    if (!this.isEditing) {
+    if (!this.isEditing && !this.isAdding) {
       this.selectedStudent = student;
     };
   }
 
   // Save only working for edits
   saveStudent(student: object) {
-    const studentIndex = this.students.findIndex(
-      (stdnt) => stdnt.id === student.id
-    );
-    this.students[studentIndex] = student;
-    this.studentsCopy = this.students;
-    this.selectedStudent = student;
-    // if (this.isAdding) {
-    //   this.isAdding = false;
-    // };
+    if (this.isAdding){
+      student.id = this.studentsCopy.length.toString();
+      this.students.unshift(student);
+      this.studentsCopy.unshift(student);
+    } else {
+      const studentIndex = this.students.findIndex(
+        (stdnt) => stdnt.id === student.id
+      );
+      this.students[studentIndex] = student;
+      this.studentsCopy = this.students;
+      this.selectedStudent = student;
+    }
   }
 
   deleteStudent(student: object) {
@@ -67,6 +70,7 @@ export class StudentsComponent {
     this.isEditing = value;
   }
 
+  /* ----- Methods for SEARCHING AND SORTING ----- */
   onSearch(): void {
     let search = this.searchTerms
       .toLowerCase()

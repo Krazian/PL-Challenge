@@ -7,7 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class StudentComponent implements OnInit {
   editing: boolean;
-  // @Input() adding: boolean;
+  @Input() adding: boolean;
   @Input() student: object;
   @Output() emitSaveStudent = new EventEmitter<object>();
   @Output() emitToggleForm = new EventEmitter<boolean>();

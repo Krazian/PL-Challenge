@@ -27,6 +27,11 @@
         <option value="speech">Speech</option>
       </select>
     </div>
+    <div class='new-student'>
+      <button class="new-student-button {{!this.isAdding ? 'add' : 'cancel'}}" (click)="addStudent()">
+        {{ !this.isAdding ? 'Add New Student' : 'Cancel' }}
+      </button>
+    </div>
     <ul class="student-list">
       <li
         class="student-btn"
@@ -41,6 +46,7 @@
     class="student-profile"
     *ngIf="selectedStudent || isAdding"
     [student]="selectedStudent"
+    [adding]="isAdding"
     (emitSaveStudent)="saveStudent($event)"
     (emitToggleForm)="toggleForm($event)"
     (emitDeleteStudent)="deleteStudent($event)"
