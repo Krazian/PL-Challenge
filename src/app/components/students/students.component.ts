@@ -117,9 +117,9 @@ export class StudentsComponent {
     } else {
       // Duplicate code from the onSearch() method. How to break this out and make dry?
       let search = this.searchTerms
-      .toLowerCase()
-      .replace(/[^a-zA-Z ]/g, '')
-      .split(' ');
+        .toLowerCase()
+        .replace(/[^a-zA-Z ]/g, '')
+        .split(' ');
       this.students = this.studentsCopy.filter(
         student => student.therapies.indexOf(this.sortTherapy) !== -1
       ).filter((student) => {
