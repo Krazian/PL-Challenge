@@ -38,15 +38,17 @@ export class StudentsComponent {
     };
   }
 
+  // Save only working for edits
   saveStudent(student: object) {
     const studentIndex = this.students.findIndex(
       (stdnt) => stdnt.id === student.id
     );
     this.students[studentIndex] = student;
+    this.studentsCopy = this.students;
     this.selectedStudent = student;
-    if (this.isAdding) {
-      this.isAdding = false;
-    };
+    // if (this.isAdding) {
+    //   this.isAdding = false;
+    // };
   }
 
   deleteStudent(student: object) {
@@ -57,6 +59,7 @@ export class StudentsComponent {
       this.students = this.students.filter((stn) => stn !== student);
       this.selectedStudent = undefined;
       alert(`Successfully deleted ${student.name}`);
+      this.studentsCopy = this.students;
     }
   }
 
