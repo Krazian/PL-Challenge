@@ -9,7 +9,8 @@
     - Issues that arose and were taken into consideration:
       - Would open edit for one student, but if another student was clicked the single student display would switch to the clicked student after the form was closed. Fixed this by tracking whether the edit form was open, and if so, do not track the click on a new student. 
       - When updating a student, the data would be updated in the parent component's prop/attribute, but was not reflected in the list of students. The solution was to emit the updated student's info from the form to the list component on save.
-  - Basic keyword search. When the user searches a word or words, the function will strip numbers and special characters (all data minus the id is or contains alphabetical string) and runs a regex test on a concatenated string of all the day to prevent excessive nested loops.
+  - Basic keyword search. When the user searches a word or words, the function will strip numbers and special characters (all data minus the id is or contains alphabetical string) and runs an `includes()` search for each keyword on a concatenated string that contains the name and all associated therapies.
+  - The search also includes a "Clear" button that will clear the search input and revert the list back to the original list when the page was first loaded. The list is able to revert back because I created a second "master" copy on the page's first load.
   - Sorting of the student list (just by name). I allow the user to toggle between ascending and descending, and the sorting happens on the current list of students. This means that you can search the list of students using keywords and then sort that filtered list.
 
 ### Missing functionality that I would've liked to include 
